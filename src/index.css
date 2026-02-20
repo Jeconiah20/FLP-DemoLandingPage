@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  scroll-margin-top: 80px;
+}
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1B3A6A, #2563eb);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #12305a, #1d4ed8);
+}
+
+/* ─── Range input (invisible thumb on top of custom track) ─── */
+.range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-top: -10px;
+  z-index: 2;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #1B3A6A;
+  box-shadow: 0 2px 8px rgba(27, 58, 106, 0.3);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.range-input::-webkit-slider-thumb:hover {
+  box-shadow: 0 4px 14px rgba(27, 58, 106, 0.45);
+  transform: scale(1.15);
+}
+
+.range-input::-webkit-slider-thumb:active {
+  transform: scale(1.25);
+}
+
+.range-input::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #1B3A6A;
+  box-shadow: 0 2px 8px rgba(27, 58, 106, 0.3);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.range-input::-moz-range-track {
+  background: transparent;
+  height: 8px;
+}
+
+/* ─── Blink animation ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+/* ─── Selection color ─── */
+::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #1B3A6A;
+}
+
+/* ─── Smooth focus styles ─── */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.5);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ─── Checkbox styling ─── */
+input[type="checkbox"] {
+  accent-color: #1B3A6A;
+  cursor: pointer;
+}
